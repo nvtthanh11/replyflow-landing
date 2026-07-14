@@ -28,6 +28,7 @@
 </header>
 
 <section class="hero">
+  <div class="bg-blobs"><span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span></div>
   <div class="wrap">
     <span class="eyebrow">AI trực fanpage cho shop bán hàng</span>
     <h1>Khách nhắn tin lúc nào, <span class="grad">có AI trả lời ngay lúc đó</span> — không còn bỏ sót đơn</h1>
@@ -48,12 +49,12 @@
 
 <section>
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
       <span class="eyebrow-sm">Bài toán thực tế</span>
       <h2 class="section-title">Mỗi tin nhắn trả lời chậm là một khách hàng có thể đã chuyển sang shop khác</h2>
       <p class="section-sub">Càng nhiều khách nhắn, gánh nặng trực page và trả lời lặp lại càng đè lên một, hai nhân viên.</p>
     </div>
-    <div class="grid-3">
+    <div class="grid-3 reveal">
       <div class="card pain-card">
         <h3>Khách nhắn tối không ai trả lời</h3>
         <p>Ngoài giờ làm việc, cuối tuần — tin nhắn vẫn đến nhưng không ai trực để phản hồi kịp.</p>
@@ -72,12 +73,12 @@
 
 <section class="alt" id="process">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
       <span class="eyebrow-sm">Cách hoạt động</span>
       <h2 class="section-title">Setup một lần, AI học đúng theo shop của bạn</h2>
       <p class="section-sub">Không phải chatbot cứng theo kịch bản có sẵn — ReplyFlow được nạp dữ liệu thật của từng shop trước khi lên trực page.</p>
     </div>
-    <div class="timeline">
+    <div class="timeline reveal">
       <div class="tl-step">
         <div class="n">1</div>
         <h3>Kết nối fanpage</h3>
@@ -109,12 +110,12 @@
 
 <section id="features">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
       <span class="eyebrow-sm">Tính năng</span>
       <h2 class="section-title">Đủ sâu để trực page thật, không chỉ trả lời rập khuôn</h2>
       <p class="section-sub">Mỗi tính năng đang chạy trên hệ thống thật, không phải bản demo dựng riêng để giới thiệu.</p>
     </div>
-    <div class="grid-3">
+    <div class="grid-3 reveal">
       <div class="card">
         <div class="icon">💬</div>
         <h3>Trả lời khách 24/7</h3>
@@ -151,12 +152,12 @@
 
 <section class="alt">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
       <span class="eyebrow-sm">Phù hợp với</span>
       <h2 class="section-title">Dành cho shop hay bị quá tải inbox</h2>
       <p class="section-sub">Đặc biệt hợp với ngành hàng có nhiều câu hỏi lặp lại về giá và sản phẩm.</p>
     </div>
-    <div class="audience-row">
+    <div class="audience-row reveal">
       <div class="audience-pill"><span class="dot"></span> Shop online</div>
       <div class="audience-pill"><span class="dot"></span> Spa / thẩm mỹ</div>
       <div class="audience-pill"><span class="dot"></span> Tiệm bánh / quà tặng</div>
@@ -168,12 +169,12 @@
 
 <section id="pricing">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
       <span class="eyebrow-sm">Bảng giá</span>
       <h2 class="section-title">Chọn gói phù hợp với quy mô shop của bạn</h2>
       <p class="section-sub">Thu phí setup ban đầu và phí duy trì theo tháng. Không bán source code — shop chỉ nhận quyền admin riêng cho fanpage của mình.</p>
     </div>
-    <div class="pricing-grid">
+    <div class="pricing-grid reveal">
       <div class="plan">
         <h3>Starter</h3>
         <p class="fit">Phù hợp shop nhỏ cần trả lời inbox cơ bản.</p>
@@ -222,7 +223,7 @@
 
 <section>
   <div class="wrap">
-    <div class="cta-band">
+    <div class="cta-band reveal">
       <h2>Muốn xem AI trực page theo đúng ngành của bạn?</h2>
       <p>Gửi thông tin shop, mình sẽ setup thử một đoạn hội thoại demo theo đúng sản phẩm và giọng văn shop muốn — xem tận mắt trước khi quyết định.</p>
       <a class="btn-primary" href="#contact">Nhắn DEMO ngay</a>
@@ -231,7 +232,7 @@
 </section>
 
 <section id="contact">
-  <div class="wrap contact-grid">
+  <div class="wrap contact-grid reveal">
     <div class="contact-info">
       <h2>Đăng ký demo</h2>
       <p>Điền thông tin bên dưới, mình sẽ liên hệ lại để tìm hiểu nhu cầu và setup demo AI trực page theo đúng ngành hàng của shop bạn.</p>
@@ -297,6 +298,23 @@
     </div>
   </div>
 </footer>
+
+<script>
+  var revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(function(el) { io.observe(el); });
+  } else {
+    revealEls.forEach(function(el) { el.classList.add('visible'); });
+  }
+</script>
 
 </body>
 </html>
